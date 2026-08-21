@@ -9,11 +9,11 @@ import { useState } from 'react';
 
 // TODO: replace SUPABASE_URL with your actual project URL, e.g.
 // https://hfekutmvgyjyvcngjvtg.supabase.co
-const SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+const SUPABASE_URL = 'https://hfekutmvgyjyvcngjvtg.supabase.co';
 const BUCKET = 'growth-circle-public';
 
 function publicUrl(path) {
-  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}`;
+  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${encodeURIComponent(path)}`;
 }
 
 const RESOURCES = [
@@ -26,19 +26,19 @@ const RESOURCES = [
   {
     title: 'Tax Opinion Letter',
     description: 'Legal opinion from Fabian VanCott addressing bonus depreciation eligibility and trust material participation.',
-    href: publicUrl('Highland_Steel_Opinion_Letter.pdf'),
+    href: publicUrl('BoxHouse_Highland Steel Opinion Letter.pdf'),
     icon: '⚖️',
   },
   {
     title: 'Significant Services Memo',
     description: 'Supplemental memorandum addressing significant services considerations for the ReadyPod structure.',
-    href: publicUrl('PwC_Significant_Services_Memo.docx'),
+    href: publicUrl('Second_Supplemental_Memo_PwC_ReadyPod_Significant_Services.docx'),
     icon: '📄',
   },
   {
     title: 'Unit Appraisal',
     description: 'Certified income-approach appraisal of a Duplex unit, prepared by Tiny Home Appraisers.',
-    href: publicUrl('Unit_Appraisal.pdf'),
+    href: publicUrl('TinyHomesAppraisal.pdf'),
     icon: '🏠',
   },
   {
