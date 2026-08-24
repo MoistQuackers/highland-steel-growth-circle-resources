@@ -7,8 +7,6 @@ import { useState } from 'react';
 // separate from the internal admin document library.
 // ============================================================================
 
-// TODO: replace SUPABASE_URL with your actual project URL, e.g.
-// https://hfekutmvgyjyvcngjvtg.supabase.co
 const SUPABASE_URL = 'https://hfekutmvgyjyvcngjvtg.supabase.co';
 const BUCKET = 'growth-circle-public';
 
@@ -16,7 +14,7 @@ function publicUrl(path) {
   return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${encodeURIComponent(path)}`;
 }
 
-const RESOURCES = [
+const WFH_RESOURCES = [
   {
     title: 'Highland Steel Pitch Deck',
     description: 'An overview of the BoxHouse program, unit models, and the tax-advantaged structure behind the investment.',
@@ -42,7 +40,7 @@ const RESOURCES = [
     icon: '🏠',
   },
   {
-    title: 'Sample Buyer\'s Packet',
+    title: "Sample Buyer's Packet",
     description: 'An example of the full documentation package a buyer receives upon purchase.',
     href: 'https://drive.google.com/file/d/1MrdnBKIl7eo4Bj0W81EYlx1OsqXPgqES/view?usp=sharing',
     icon: '📁',
@@ -50,8 +48,32 @@ const RESOURCES = [
   },
 ];
 
+const HM_RESOURCES = [
+  {
+    title: "Sample Buyer's Packet",
+    description: 'An example of the full documentation package a Heavy Machinery buyer receives upon purchase.',
+    href: publicUrl('Heavy_Equipment_Sample_Buyers_Packet.pdf'),
+    icon: '📁',
+  },
+  {
+    title: 'Limited Loss Guaranty',
+    description: 'Terms of the limited loss guaranty provided under the Heavy Machinery program.',
+    href: publicUrl('Heavy_Equipment_Limited_Loss_Guaranty.pdf'),
+    icon: '🛡️',
+  },
+  {
+    title: 'Tax Opinion Letter',
+    description: 'Legal opinion addressing the tax treatment of the Heavy Machinery investment structure.',
+    href: publicUrl('Heavy_Equipment_Opinion_Letter.pdf'),
+    icon: '⚖️',
+  },
+];
+
+const DEVIN_BRADY_VIDEO_ID = 'gfvXk0stny8';
+
 export default function ResourcesPage() {
   const [copied, setCopied] = useState(false);
+  const [strategy, setStrategy] = useState('wfh'); // 'wfh' | 'hm'
 
   function copyPageLink() {
     navigator.clipboard.writeText(window.location.href);
@@ -59,9 +81,10 @@ export default function ResourcesPage() {
     setTimeout(() => setCopied(false), 2000);
   }
 
+  const resources = strategy === 'wfh' ? WFH_RESOURCES : HM_RESOURCES;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Header */}
       <header className="bg-gradient-to-r from-blue-700 to-blue-800 text-white">
         <div className="max-w-5xl mx-auto px-6 py-14">
           <div className="flex items-center gap-3 mb-6">
@@ -71,40 +94,83 @@ export default function ResourcesPage() {
             <span className="font-bold text-2xl">Highland Steel</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">Investor Resources</h1>
-          <p className="text-blue-100 text-lg max-w-2xl">
-            Everything you need to review the BoxHouse investment structure — pitch materials, tax documentation, and an interactive calculator.
+          <p className="text-blue-100 text-lg max-w-2xl mb-6">
+            Everything you need to review the investment structure — pitch materials, tax documentation, and an interactive calculator.
           </p>
+
+          <div className="inline-flex bg-white/10 rounded-xl p-1.5 backdrop-blur-sm">
+            <button
+              onClick={() => setStrategy('wfh')}
+              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                strategy === 'wfh' ? 'bg-white text-blue-700' : 'text-blue-100 hover:text-white'
+              }`}
+            >
+              Workforce Housing
+            </button>
+            <button
+              onClick={() => setStrategy('hm')}
+              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                strategy === 'hm' ? 'bg-white text-blue-700' : 'text-blue-100 hover:text-white'
+              }`}
+            >
+              Heavy Machinery
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Resource cards */}
       <main className="max-w-5xl mx-auto px-6 py-12">
 
-        {/* Calculator — featured, since it's interactive not a download */}
-        <a
-          href="https://taxcalculatorhs.netlify.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mb-8 bg-white rounded-2xl shadow-lg border-2 border-blue-200 p-8 hover:border-blue-400 hover:shadow-xl transition-all group"
-        >
-          <div className="flex items-start gap-5">
-            <div className="text-4xl">🧮</div>
-            <div className="flex-1">
-              <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
-                Tax Savings Calculator
-              </h2>
-              <p className="text-slate-500 mt-1">
-                Run your own numbers — enter your income and filing details to see your estimated tax savings under the program.
-              </p>
-              <span className="inline-block mt-3 text-sm font-semibold text-blue-600">
-                Open Calculator →
-              </span>
+        {strategy === 'wfh' && (
+          <>
+            <a
+              href="https://taxcalculatorhs.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mb-6 bg-white rounded-2xl shadow-lg border-2 border-blue-200 p-8 hover:border-blue-400 hover:shadow-xl transition-all group"
+            >
+              <div className="flex items-start gap-5">
+                <div className="text-4xl">🧮</div>
+                <div className="flex-1">
+                  <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                    Tax Savings Calculator
+                  </h2>
+                  <p className="text-slate-500 mt-1">
+                    Run your own numbers — enter your income and filing details to see your estimated tax savings under the program.
+                  </p>
+                  <span className="inline-block mt-3 text-sm font-semibold text-blue-600">
+                    Open Calculator →
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <div className="mb-6 bg-white rounded-2xl shadow-lg border-2 border-slate-200 overflow-hidden">
+              <div className="px-6 py-4 border-b border-slate-200">
+                <h2 className="text-lg font-bold text-slate-900">In-Depth Program Explainer</h2>
+                <p className="text-sm text-slate-500 mt-1">Devin Brady, CPA, walks through how the program works.</p>
+              </div>
+              <div className="p-6">
+                <div
+                  className="w-full rounded-xl overflow-hidden border border-slate-200"
+                  style={{ position: 'relative', paddingBottom: '56.25%' }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${DEVIN_BRADY_VIDEO_ID}`}
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    title="Devin Brady Program Explainer"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </a>
+          </>
+        )}
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {RESOURCES.map((r) => (
+          {resources.map((r) => (
             <a
               key={r.title}
               href={r.href}
@@ -124,7 +190,6 @@ export default function ResourcesPage() {
           ))}
         </div>
 
-        {/* Share this page */}
         <div className="mt-12 text-center">
           <button
             onClick={copyPageLink}
