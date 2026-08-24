@@ -46,6 +46,20 @@ const WFH_RESOURCES = [
     icon: '📁',
     external: true,
   },
+  {
+    title: 'Highland Steel FAQ',
+    description: 'Answers to the most common investor questions about the program structure, tax mechanics, and material participation.',
+    href: 'https://docs.google.com/document/d/1roqhkr-TaWSu1XonEG8orH3SziL2i7tnPlnpdCpWXeE/preview',
+    icon: '❓',
+    external: true,
+  },
+  {
+    title: 'CPA Letter — Workforce Housing',
+    description: 'Summary memo covering the tax strategy, bonus depreciation mechanics, and key considerations for CPAs and investors.',
+    href: 'https://drive.google.com/file/d/1bBDRFg7uDJ6s9ywiWkj4Og-jhlVR7QhA/view?usp=sharing',
+    icon: '📝',
+    external: true,
+  },
 ];
 
 const HM_RESOURCES = [
