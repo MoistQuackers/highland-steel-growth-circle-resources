@@ -60,6 +60,12 @@ const WFH_RESOURCES = [
     icon: '📝',
     external: true,
   },
+  {
+    title: 'Material Participation',
+    description: 'Legal analysis supporting material participation for grantor trust structures, including key case law from Carter and Aragona.',
+    href: publicUrl('Material_Participation.pdf'),
+    icon: '⚖️',
+  },
 ];
 
 const HM_RESOURCES = [
@@ -80,6 +86,12 @@ const HM_RESOURCES = [
     description: 'Legal opinion addressing the tax treatment of the Heavy Machinery investment structure.',
     href: publicUrl('Heavy_Equipment_Opinion_Letter.pdf'),
     icon: '⚖️',
+  },
+  {
+    title: 'Tax White Paper',
+    description: 'Detailed analysis of accelerated depreciation strategies and excess business loss framework for heavy machinery investments under the OBBBA.',
+    href: publicUrl('Heavy_Machinery_White_Paper.pdf'),
+    icon: '📄',
   },
 ];
 
