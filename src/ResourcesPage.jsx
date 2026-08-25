@@ -96,19 +96,19 @@ const HM_RESOURCES = [
   {
     title: 'Asset Management Agreement',
     description: 'The Own Advantage Flex Asset Management Agreement between EZ Equipment Zone LLC and EquipmentShare.',
-    href: publicUrl('Asset_Management_Agreement.pdf'),
+    href: publicUrl('Asset Management Agreement.pdf'),
     icon: '📋',
   },
   {
     title: 'Remarketing Agreement',
     description: 'Agreement governing EquipmentShare\'s provision of equipment remarketing services under the OWN Program.',
-    href: publicUrl('Remarketing_Agreement.pdf'),
+    href: publicUrl('Remarketing Agreement.pdf'),
     icon: '🤝',
   },
   {
     title: 'Flex AMA Schedule',
     description: 'Schedule of equipment terms, sharing table, and residual proceeds waterfall under the Own Advantage Flex program.',
-    href: publicUrl('Flex_AMA_Schedule.pdf'),
+    href: publicUrl('Flex AMA Schedule.pdf'),
     icon: '📊',
   },
 ];
