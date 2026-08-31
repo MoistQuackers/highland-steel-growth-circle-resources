@@ -106,6 +106,13 @@ const HM_RESOURCES = [
     icon: '🤝',
   },
   {
+    title: 'Heavy Machinery FAQ',
+    description: 'Answers to the most common investor questions about the Heavy Machinery program structure, tax mechanics, and depreciation strategy.',
+    href: 'https://docs.google.com/document/d/1mXdPWOlg9QPUqFjMFVr5oKx0iDAC390rZo2TxbOd2iU/preview',
+    icon: '❓',
+    external: true,
+  },
+  {
     title: 'Flex AMA Schedule',
     description: 'Schedule of equipment terms, sharing table, and residual proceeds waterfall under the Own Advantage Flex program.',
     href: publicUrl('Flex AMA Schedule.pdf'),
