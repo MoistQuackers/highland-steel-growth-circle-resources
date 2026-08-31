@@ -72,7 +72,7 @@ const HM_RESOURCES = [
   {
     title: "Sample Buyer's Packet",
     description: 'An example of the full documentation package a Heavy Machinery buyer receives upon purchase.',
-    href: publicUrl('Heavy_Equipment_Sample_Buyers_Packet.pdf'),
+    href: publicUrl('Template 2026 Advantage Flex Deck .pdf'),
     icon: '📁',
   },
   {
