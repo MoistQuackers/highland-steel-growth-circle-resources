@@ -118,6 +118,13 @@ const HM_RESOURCES = [
     href: publicUrl('Flex AMA Schedule.pdf'),
     icon: '📊',
   },
+  {
+    title: 'Material Participation Guide',
+    description: 'A guide to material participation for investors in the Heavy Machinery program.',
+    href: 'https://drive.google.com/file/d/1j3QwpM2r4DIbWq27rIY9RcRJmgy_eTyR/view?usp=sharing',
+    icon: '📘',
+    external: true,
+  },
 ];
 
 const DEVIN_BRADY_VIDEO_ID = 'gfvXk0stny8';
