@@ -42,9 +42,8 @@ const WFH_RESOURCES = [
   {
     title: "Sample Buyer's Packet",
     description: 'An example of the full documentation package a buyer receives upon purchase.',
-    href: 'https://drive.google.com/file/d/1MrdnBKIl7eo4Bj0W81EYlx1OsqXPgqES/view?usp=sharing',
+    href: '/documents/WFH_Buyers_Packet_2026-10-22_a363d6a1.pdf',
     icon: '📁',
-    external: true,
   },
   {
     title: 'Highland Steel FAQ',
